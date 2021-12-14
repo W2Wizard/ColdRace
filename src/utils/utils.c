@@ -1,5 +1,12 @@
 #include "coldrace.h"
 
+/**
+ * Compares two strings.
+ * 
+ * @param str1 The first string.
+ * @param str2 The second string.
+ * @return size_t Look at the manpage :P
+ */
 size_t	ft_strcmp(const char* str1, const char* str2)
 {
 	size_t i = 0;
@@ -12,6 +19,13 @@ size_t	ft_strcmp(const char* str1, const char* str2)
 	return (str1[i] - str2[i]);
 }
 
+/**
+ * Gets the length of the string until a given char or until null.
+ * 
+ * @param str The string.
+ * @param c The char until which to count to.
+ * @return size_t The length of the string until c or \0.
+ */
 size_t	ft_strclen(const char* str, char c)
 {
 	int i = 0;
@@ -21,7 +35,12 @@ size_t	ft_strclen(const char* str, char c)
 	return (i);
 }
 
-
+/**
+ * Returns the length of the string.
+ * 
+ * @param str The string.
+ * @return size_t The length.
+ */
 size_t	ft_strlen(const char* str)
 {
 	int i = 0;
@@ -31,6 +50,12 @@ size_t	ft_strlen(const char* str)
 	return (i);
 }
 
+/**
+ * Duplicates a given string, will call exit on malloc fail.
+ * 
+ * @param s1 The string to duplicate.
+ * @return char* The newly allocated string thats identical in terms of content to s1.
+ */
 char*	ft_strdup(const char* s1)
 {
 	char    *str;
@@ -43,6 +68,13 @@ char*	ft_strdup(const char* s1)
 	return (str);
 }
 
+/**
+ * Allocates a new string by appending str2 to str1, freeing str1 in the process.
+ * 
+ * @param str1 The first string.
+ * @param str2 The second string.
+ * @return char* The new string.
+ */
 char*   ft_append(char* str1, char* str2)
 {
 	size_t	len1 = 0;
@@ -60,6 +92,14 @@ char*   ft_append(char* str1, char* str2)
 	return (out);
 }
 
+/**
+ * Retrieves a subset of the given string.
+ * 
+ * @param s The string.
+ * @param start The starting position.
+ * @param len How many characters long.
+ * @return char* 
+ */
 char	*ft_substr(char const* s, size_t start, size_t len)
 {
 	char*	sub;
