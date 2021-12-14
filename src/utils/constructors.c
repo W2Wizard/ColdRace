@@ -3,9 +3,9 @@
 /**
  * Creates a new pair.
  * 
- * @param key 
- * @param value 
- * @return t_pair* 
+ * @param key The key, identifier.
+ * @param value The value associated with the key.
+ * @return t_pair* The pair.
  */
 t_pair* new_pair(char* key, char* value)
 {
@@ -18,10 +18,8 @@ t_pair* new_pair(char* key, char* value)
 /**
  * Creates a new node.
  * 
- * @param pair 
- * @param left 
- * @param right 
- * @return t_node* 
+ * @param pair The pair to add to the node.
+ * @return t_node* The node.
  */
 t_node* new_node(t_pair* pair)
 {
