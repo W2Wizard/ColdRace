@@ -108,6 +108,8 @@ char*	ft_strchr(const char* s, int32_t c)
 	len = ft_strlen(s);
 	if (c == '\0')
 		return ((char *)&s[len]);
+	if (len == 0)
+		return (NULL);
 	while (i < len - 1)
 	{
 		if (s[i] == (uint8_t)c)

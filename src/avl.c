@@ -10,7 +10,7 @@ t_node*	insert_node(t_node* root, t_pair* pair)
 	if (res_strcmp < 0)
 		root->left = insert_node(root->left, pair);
 	else if (res_strcmp > 0)
-		root->left = insert_node(root->left, pair);
+		root->left = insert_node(root->right, pair);
 	else
 	{
 		free_pair(pair);

@@ -6,13 +6,13 @@
 /*   By: lde-la-h <lde-la-h@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2021/12/14 15:01:47 by lde-la-h      #+#    #+#                 */
-/*   Updated: 2021/12/14 15:58:24 by lde-la-h      ########   odam.nl         */
+/*   Updated: 2021/12/14 16:15:51 by avan-ber      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "coldrace.h"
 
-char*	ft_getline(char* readstr, char* remainder)
+char*	ft_getline(char* readstr, char** remainder)
 {
 	size_t	len;
 	char*	out;
@@ -27,10 +27,10 @@ char*	ft_getline(char* readstr, char* remainder)
 	if (!*rem)
 	{
 		free(rem);
-		remainder = NULL;
+		*remainder = NULL;
 	}
 	else
-		remainder = rem;
+		*remainder = rem;
 	return (out);
 }
 
@@ -46,10 +46,10 @@ char*	ft_readline(int32_t fd)
         BUFF[bread] = '\0';
         readstr = ft_append(readstr, BUFF);
 		if (ft_strchr(readstr, '\n'))
-			return(ft_getline(readstr, remainder));
+			return(ft_getline(readstr, &remainder));
     }
 	if (remainder != NULL)
-		return (ft_getline(remainder, remainder));
+		return (ft_getline(remainder, &remainder));
     return (readstr);
 	
 }
