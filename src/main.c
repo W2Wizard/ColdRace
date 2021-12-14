@@ -14,7 +14,7 @@
 
 int32_t main(void)
 {
-    int32_t fd = open("example.txt", O_RDONLY);
+    int32_t fd = open("big.txt", O_RDONLY);
     t_node  *tree = NULL;
     // Part 1
     while (true)
