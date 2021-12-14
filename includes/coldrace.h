@@ -23,6 +23,7 @@ typedef struct		s_node
 	t_pair*			pair;
 	struct s_node*	left;
 	struct s_node*	right;
+	size_t			height;
 }					t_node;
 
 //= Functions =//
