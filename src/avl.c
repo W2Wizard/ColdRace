@@ -2,22 +2,20 @@
 
 int height(t_node* node)
 {
-	if	(node == NULL)
-		return 0;
+	if(node == NULL)
+		return (0);
 	return (node->height);
 }
 
 int max(int a, int b)
 {
-	if (a > b)
-		return (a);
-	return (b);
+	return (a > b ? a : b);
 }
 
 int getBalance(t_node* node)
 {
 	if (node == NULL)
-		return 0;
+		return (0);
 	return height(node->left) - height(node->right);
 }
 
@@ -32,7 +30,7 @@ t_node*	right_rotate(t_node* y)
 	y->height = max(height(y->left), height(y->right)) + 1;
 	x->height = max(height(x->left), height(x->right)) + 1;
 
-	return x;
+	return (x);
 }
 
 t_node*	left_rotate(t_node* x)
@@ -46,12 +44,12 @@ t_node*	left_rotate(t_node* x)
 	y->height = max(height(y->left), height(y->right)) + 1;
 	x->height = max(height(x->left), height(x->right)) + 1;
 
-	return y;
+	return (y);
 }
 
 t_node*	insert_node(t_node* root, t_pair* pair)
 {
-	int	res_strcmp;
+	int32_t	res_strcmp;
 
 	if (root == NULL)
 		return (new_node(pair));
@@ -88,7 +86,7 @@ t_node*	insert_node(t_node* root, t_pair* pair)
 
 t_pair*	find_node(t_node* root, char *key)
 {
-	int	res_strcmp;
+	int32_t	res_strcmp;
 
 	if (root == NULL)
 		return (NULL);

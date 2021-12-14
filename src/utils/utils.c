@@ -88,6 +88,7 @@ char*   ft_append(char* str1, char* str2)
 	out = malloc_check(malloc((len1 + len2 + 1) * sizeof(char)));
 	ft_memmove(out, str1, len1);
 	ft_memmove(out + len1, str2, len1);
+	free(str1);
 	out[len1 + len2] = '\0';
 	return (out);
 }
