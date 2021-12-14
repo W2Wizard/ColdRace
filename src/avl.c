@@ -38,7 +38,7 @@ t_node*	right_rotate(t_node* y)
 t_node*	left_rotate(t_node* x)
 {
 	t_node *y = x->right;
-	t_node *temp = x->left;
+	t_node *temp = y->left;
 
 	y->left = x;
 	x->right = temp;
@@ -59,7 +59,7 @@ t_node*	insert_node(t_node* root, t_pair* pair)
 	if (res_strcmp < 0)
 		root->left = insert_node(root->left, pair);
 	else if (res_strcmp > 0)
-		root->left = insert_node(root->right, pair);
+		root->right = insert_node(root->right, pair);
 	else
 	{
 		free_pair(pair);
@@ -69,19 +69,19 @@ t_node*	insert_node(t_node* root, t_pair* pair)
 	root->height = max(height(root->left), height(root->right)) + 1;
 
 	int balance = getBalance(root);
-	if (balance > 1 && ft_strcmo(pair->key, root->left->pair->key) < 0)
-		return rightRotate(root);
+	if (balance > 1 && ft_strcmp(pair->key, root->left->pair->key) < 0)
+		return right_rotate(root);
 	if (balance < -1 && ft_strcmp(pair->key, root->right->pair->key) > 0)
-		return leftRotate(root);
+		return left_rotate(root);
 	if (balance > 1 && ft_strcmp(pair->key, root->left->pair->key) > 0)
 	{
-		root->left =  leftRotate(root->left);
-		return rightRotate(root);
+		root->left =  left_rotate(root->left);
+		return right_rotate(root);
 	}
-	if (balance < -1 && ft_strcmo(pair->key, root->right->pair->key) < 0)
+	if (balance < -1 && ft_strcmp(pair->key, root->right->pair->key) < 0)
 	{
-		root->right = rightRotate(root->right);
-		return leftRotate(root);
+		root->right = right_rotate(root->right);
+		return left_rotate(root);
 	}
 	return (root);
 }
