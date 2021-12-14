@@ -23,11 +23,11 @@ t_pair* new_pair(char* key, char* value)
  * @param right 
  * @return t_node* 
  */
-t_node* new_node(t_pair* pair, t_node* left, t_node* right)
+t_node* new_node(t_pair* pair)
 {
 	t_node* output = malloc(sizeof(t_node));
 	output->pair = pair;
-	output->left = left;
-	output->right = right;
+	output->left = NULL;
+	output->right = NULL;
 	return (output);
 }
