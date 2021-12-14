@@ -9,7 +9,7 @@
  */
 t_pair* new_pair(char* key, char* value)
 {
-	t_pair* output = malloc(sizeof(t_pair));
+	t_pair* output = molloc_check(malloc(sizeof(t_pair)));
 	output->key = key;
 	output->value = value;
 	return (output);
@@ -25,7 +25,7 @@ t_pair* new_pair(char* key, char* value)
  */
 t_node* new_node(t_pair* pair)
 {
-	t_node* output = malloc(sizeof(t_node));
+	t_node* output = malloc_check(malloc(sizeof(t_node)));
 	output->pair = pair;
 	output->left = NULL;
 	output->right = NULL;

@@ -39,8 +39,8 @@ typedef struct      s_node
 
 //= Functions =//
 
-t_pair* new_pair(char* key, char* value);
-t_node* new_node(t_pair* pair);
-void    insert_node(t_node** root, t_node* );
+t_pair*	new_pair(char* key, char* value);
+t_node*	new_node(t_pair* pair);
+t_node*	insert_node(t_node** root, t_node* );
 
 #endif
