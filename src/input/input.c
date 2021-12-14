@@ -6,7 +6,7 @@
 /*   By: lde-la-h <lde-la-h@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2021/12/14 15:01:47 by lde-la-h      #+#    #+#                 */
-/*   Updated: 2021/12/14 15:33:07 by lde-la-h      ########   odam.nl         */
+/*   Updated: 2021/12/14 15:58:24 by lde-la-h      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,7 +34,7 @@ char*	ft_getline(char* readstr, char* remainder)
 	return (out);
 }
 
-char*	readline(int32_t fd)
+char*	ft_readline(int32_t fd)
 {
     static char*	remainder;
     ssize_t			bread = 0;

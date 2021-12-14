@@ -16,6 +16,7 @@ t_node*	insert_node(t_node* root, t_pair* pair)
 		free_pair(pair);
 		return (root);
 	}
+	return (root);
 }
 
 t_pair*	find_node(t_node* root, char *key)

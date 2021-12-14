@@ -6,7 +6,7 @@
 #    By: lde-la-h <lde-la-h@student.codam.nl>         +#+                      #
 #                                                    +#+                       #
 #    Created: 2021/12/14 14:36:58 by lde-la-h      #+#    #+#                  #
-#    Updated: 2021/12/14 15:31:59 by lde-la-h      ########   odam.nl          #
+#    Updated: 2021/12/14 15:56:20 by lde-la-h      ########   odam.nl          #
 #                                                                              #
 # **************************************************************************** #
 
@@ -19,8 +19,9 @@ SRC_DIR = src
 
 _OBJ_FILES =	main \
 				input/input \
+				utils/constructors \
 				utils/utils \
-
+				avl
 
 OBJ_FILES = $(addsuffix .o, $(addprefix $(OBJ_DIR)/,$(_OBJ_FILES)))
 

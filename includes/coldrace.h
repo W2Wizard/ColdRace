@@ -27,7 +27,10 @@ typedef struct		s_node
 
 //= Functions =//
 
-char*	readline(int32_t fd);
+size_t	ft_strcmp(const char* str1, const char* str2);
+size_t	ft_strclen(const char* str, char c);
+size_t	ft_strlen(const char* str);
+char*	ft_readline(int32_t fd);
 char*	ft_strdup(const char *s1);
 char	*ft_substr(char const* s, size_t start, size_t len);
 size_t	ft_strclen(const char* str, char c);
@@ -36,11 +39,13 @@ void*	ft_memmove(void *dst, const void *src, size_t len);
 char*	ft_strchr(const char *s, int32_t c);
 void	print_error_message(char *message);
 void*	malloc_check(void* obj);
+void	free_pair(t_pair *pair);
 
 //= Algo =//
 
 t_pair*	new_pair(char* key, char* value);
 t_node*	new_node(t_pair* pair);
 t_node*	insert_node(t_node* root, t_pair* pair);
+t_pair*	find_node(t_node* root, char *key);
 
 #endif
