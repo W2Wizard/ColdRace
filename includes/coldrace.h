@@ -6,7 +6,7 @@
 /*   By: lde-la-h <lde-la-h@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2021/12/14 14:22:47 by lde-la-h      #+#    #+#                 */
-/*   Updated: 2021/12/14 14:43:04 by lde-la-h      ########   odam.nl         */
+/*   Updated: 2021/12/14 15:24:50 by avan-ber      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,23 +24,23 @@
 
 //= Types =//
 
-typedef struct      s_pair
+typedef struct		s_pair
 {
-	char*           key;
-	char*           value;
-}                   t_pair;
+	char*			key;
+	char*			value;
+}					t_pair;
 
-typedef struct      s_node
+typedef struct		s_node
 {
-	t_pair*         pair;
-	struct s_node*  left;
-	struct s_node*  right;
-}                   t_node;
+	t_pair*			pair;
+	struct s_node*	left;
+	struct s_node*	right;
+}					t_node;
 
 //= Functions =//
 
 t_pair*	new_pair(char* key, char* value);
 t_node*	new_node(t_pair* pair);
-t_node*	insert_node(t_node** root, t_node* );
+t_node*	insert_node(t_node* root, t_pair* pair);
 
 #endif
