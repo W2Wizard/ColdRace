@@ -77,20 +77,20 @@ char*	ft_strdup(const char* s1)
  */
 char*   ft_append(char* str1, char* str2)
 {
-	size_t	len1 = 0;
-	size_t	len2 = 0;
-	char*	out = NULL;
+    char    *out;
+    size_t    len1;
+    size_t    len2;
 
-	if (!str1)
-		return(ft_strdup(str2));
-	len1 = ft_strlen(str1);
-	len2 = ft_strlen(str2);
-	out = malloc_check(malloc((len1 + len2 + 1) * sizeof(char)));
-	ft_memmove(out, str1, len1);
-	ft_memmove(out + len1, str2, len1);
-	free(str1);
+    if (!str1)
+        return (ft_strdup(str2));
+    len1 = ft_strlen(str1);
+    len2 = ft_strlen(str2);
+    out = (char *)malloc_check(malloc(len1 + len2 + 1));
+    ft_memmove(out, str1, len1);
+    ft_memmove(out + len1, str2, len2);
+    free((char *)str1);
 	out[len1 + len2] = '\0';
-	return (out);
+    return (out);
 }
 
 /**
