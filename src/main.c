@@ -14,14 +14,14 @@
 
 int32_t main(void)
 {
-	const int32_t fd = STDIN_FILENO;//open("example.txt", O_RDONLY);
+	const int32_t fd = open("big.txt", O_RDONLY);
 
 	char*   key = NULL;
 	t_node* tree = NULL;
 	// Part 1, enter
 	while ((key = ft_readline(fd)))
 	{
-		if (*key == '\n')
+		if (*key == '\0')
 			break;
 		char* value = ft_readline(fd);
 		tree = insert_node(tree, new_pair(key, value));
@@ -29,18 +29,20 @@ int32_t main(void)
 	// Part 2, searching
 	while ((key = ft_readline(fd)))
 	{
-		if (*key == '\n')
+		if (*key == '\0')
 			break;
 		t_pair* pair = find_node(tree, key);
 		if (pair == NULL)
 		{
-			write(STDERR_FILENO, key, ft_strclen(key, '\n'));
-			write(STDERR_FILENO, ": Not found.\n", 13);
+			printf("%s: Not found.\n", key);
+			// write(STDERR_FILENO, key, ft_strclen(key, '\n'));
+			// write(STDERR_FILENO, ": Not found.\n", 13);
 		}
 		else
 		{
-			write(STDOUT_FILENO, pair->value, ft_strclen(pair->value, '\n'));
-			write(STDOUT_FILENO, "\n", 1);
+			printf("%s\n", pair->value);
+			// write(STDOUT_FILENO, pair->value, ft_strclen(pair->value, '\n'));
+			// write(STDOUT_FILENO, "\n", 1);
 		}
 	}
 	exit(EXIT_SUCCESS);

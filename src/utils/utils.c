@@ -140,24 +140,20 @@ void*	ft_memmove(void *dst, const void *src, size_t len)
 	return (dst);
 }
 
-char*	ft_strchr(const char* s, int32_t c)
+char	*ft_strchr(const char *s, int c)
 {
-	size_t	i;
-	size_t	len;
+	int	i;
 
 	i = 0;
-	len = ft_strlen(s);
-	if (c == '\0')
-		return ((char *)&s[len]);
-	if (len == 0)
-		return (NULL);
-	while (i < len - 1)
+	while (s[i] != '\0')
 	{
-		if (s[i] == (uint8_t)c)
+		if (s[i] == c)
 			return ((char *)&s[i]);
 		i++;
 	}
-	return (NULL);
+	if (c == '\0')
+		return ((char *)&s[i]);
+	return (0);
 }
 
 void	print_error_message(char *message)

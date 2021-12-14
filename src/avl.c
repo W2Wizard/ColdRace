@@ -9,10 +9,10 @@ int height(t_node* node)
 
 int max(int a, int b)
 {
-	return (a > b ? a : b);
+	return ((a > b) ? a : b);
 }
 
-int getBalance(t_node* node)
+int get_balance(t_node* node)
 {
 	if (node == NULL)
 		return (0);
@@ -65,8 +65,8 @@ t_node*	insert_node(t_node* root, t_pair* pair)
 	}
 
 	root->height = max(height(root->left), height(root->right)) + 1;
-
-	int balance = getBalance(root);
+	int balance = get_balance(root);
+	printf("%d\n", balance);
 	if (balance > 1 && ft_strcmp(pair->key, root->left->pair->key) < 0)
 		return right_rotate(root);
 	if (balance < -1 && ft_strcmp(pair->key, root->right->pair->key) > 0)
@@ -94,7 +94,7 @@ t_pair*	find_node(t_node* root, char *key)
 	if (res_strcmp == 0)
 		return(root->pair);
 	else if (res_strcmp > 0)
-		return (find_node(root->left, key));
+		return (find_node(root->right, key));
 	else
 		return(find_node(root->left, key));
 }
