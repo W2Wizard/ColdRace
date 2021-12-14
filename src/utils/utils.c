@@ -7,7 +7,7 @@
  * @param str2 The second string.
  * @return size_t Look at the manpage :P
  */
-size_t	ft_strcmp(const char* str1, const char* str2)
+int32_t	ft_strcmp(const char* str1, const char* str2)
 {
 	size_t i = 0;
 	while (str1[i] != '\0')

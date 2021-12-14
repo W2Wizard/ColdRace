@@ -28,7 +28,7 @@ typedef struct		s_node
 
 //= Functions =//
 
-size_t	ft_strcmp(const char* str1, const char* str2);
+int32_t	ft_strcmp(const char* str1, const char* str2);
 size_t	ft_strclen(const char* str, char c);
 size_t	ft_strlen(const char* str);
 char*	ft_readline(int32_t fd);
