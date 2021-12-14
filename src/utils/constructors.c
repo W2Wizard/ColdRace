@@ -27,5 +27,6 @@ t_node* new_node(t_pair* pair)
 	output->pair = pair;
 	output->left = NULL;
 	output->right = NULL;
+	output->height = 1;
 	return (output);
 }
