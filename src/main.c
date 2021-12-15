@@ -6,7 +6,7 @@
 /*   By: lde-la-h <lde-la-h@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2021/12/14 14:21:58 by lde-la-h      #+#    #+#                 */
-/*   Updated: 2021/12/15 11:16:14 by jowytrzy      ########   odam.nl         */
+/*   Updated: 2021/12/15 11:22:56 by lde-la-h      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -78,6 +78,7 @@ int32_t main(void)
 			printf("%s: Not found.\n", key);
 		else
 			printf("%s\n", pair->value);
+		free(key);
 	}
 	exit(EXIT_SUCCESS);
 }
