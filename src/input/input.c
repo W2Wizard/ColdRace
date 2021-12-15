@@ -6,7 +6,7 @@
 /*   By: lde-la-h <lde-la-h@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2021/12/14 15:01:47 by lde-la-h      #+#    #+#                 */
-/*   Updated: 2021/12/15 10:23:34 by lde-la-h      ########   odam.nl         */
+/*   Updated: 2021/12/15 10:30:57 by lde-la-h      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,20 +14,16 @@
 
 static char*    ft_getline(char* readstr, char** remainder)
 {
-    size_t    len = ft_strclen(readstr, '\n');
+    size_t  len = ft_strclen(readstr, '\n');
+    char*   out = ft_substr(readstr, 0, len);
+    
     if (readstr[len] == '\n')
         len++;
-        
-    char*    out = ft_substr(readstr, 0, len);
-    char*    rem = ft_strdup(readstr + len);
-    free(readstr);
-    if (!*rem)
-    {
-        free(rem);
+    if (readstr[len] == '\0')
         *remainder = NULL;
-    }
     else
-        *remainder = rem;
+        *remainder= ft_strdup(readstr + len);
+    free(readstr);
     return (out);
 }
 
