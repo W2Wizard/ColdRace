@@ -23,12 +23,12 @@ typedef struct		s_node
 	t_pair*			pair;
 	struct s_node*	left;
 	struct s_node*	right;
-	size_t			height;
+	int				height;
 }					t_node;
 
 //= Functions =//
 
-int32_t	ft_strcmp(const char* str1, const char* str2);
+int		ft_strcmp(char *s1, char *s2);
 size_t	ft_strclen(const char* str, char c);
 size_t	ft_strlen(const char* str);
 char*	ft_readline(int32_t fd);
@@ -48,5 +48,6 @@ t_pair*	new_pair(char* key, char* value);
 t_node*	new_node(t_pair* pair);
 t_node*	insert_node(t_node* root, t_pair* pair);
 t_pair*	find_node(t_node* root, char *key);
+void	preOrder(t_node *root);
 
 #endif
