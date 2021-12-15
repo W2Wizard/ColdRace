@@ -6,13 +6,13 @@
 #    By: lde-la-h <lde-la-h@student.codam.nl>         +#+                      #
 #                                                    +#+                       #
 #    Created: 2021/12/14 14:36:58 by lde-la-h      #+#    #+#                  #
-#    Updated: 2021/12/14 16:06:27 by avan-ber      ########   odam.nl          #
+#    Updated: 2021/12/15 10:36:51 by lde-la-h      ########   odam.nl          #
 #                                                                              #
 # **************************************************************************** #
 
 NAME = coldrace
 
-CFLAGS = -Wall -Werror -Wextra -g
+CFLAGS = -Wall -Werror -Wextra
 
 OBJ_DIR = objs
 SRC_DIR = src
