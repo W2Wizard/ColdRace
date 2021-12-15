@@ -6,7 +6,7 @@
 /*   By: lde-la-h <lde-la-h@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2021/12/14 14:21:58 by lde-la-h      #+#    #+#                 */
-/*   Updated: 2021/12/15 11:49:09 by jowytrzy      ########   odam.nl         */
+/*   Updated: 2021/12/15 12:58:53 by jowytrzy      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -63,6 +63,10 @@ int32_t main(void)
 		if (*key == '\0')
 			break;
 		char* value = ft_readline(fd);
+		if (*value == '\0') {
+			free(value);
+			break;
+		}
 		unsigned int index = (unsigned int)key[0];
 		trees[index] = insert_node(trees[index], new_pair(key, value));
 		// tree = insert_node(tree, new_pair(key, value));
