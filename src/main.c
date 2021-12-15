@@ -6,7 +6,7 @@
 /*   By: lde-la-h <lde-la-h@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2021/12/14 14:21:58 by lde-la-h      #+#    #+#                 */
-/*   Updated: 2021/12/15 09:48:18 by avan-ber      ########   odam.nl         */
+/*   Updated: 2021/12/15 10:14:58 by jowytrzy      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,7 @@
 
 int32_t main(void)
 {
-	const int32_t fd = open("big.txt", O_RDONLY);
+	const int32_t fd = open("big2", O_RDONLY);
 
 	char*   key = NULL;
 	t_node* tree = NULL;
