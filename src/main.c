@@ -6,7 +6,7 @@
 /*   By: lde-la-h <lde-la-h@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2021/12/14 14:21:58 by lde-la-h      #+#    #+#                 */
-/*   Updated: 2021/12/15 11:04:13 by jowytrzy      ########   odam.nl         */
+/*   Updated: 2021/12/15 11:16:14 by jowytrzy      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -62,7 +62,8 @@ int32_t main(void)
 		if (*key == '\0')
 			break;
 		char* value = ft_readline(fd);
-		trees[(int)key[0]] = insert_node(trees[(int)key[0]], new_pair(key, value));
+		unsigned int index = (unsigned int)key[0];
+		trees[index] = insert_node(trees[index], new_pair(key, value));
 		// tree = insert_node(tree, new_pair(key, value));
 	}
 
@@ -72,7 +73,7 @@ int32_t main(void)
 		if (*key == '\0')
 			break;
 		// t_pair* pair = find_node(tree, key);
-		t_pair* pair = find_node(trees[(int)key[0]], key);
+		t_pair* pair = find_node(trees[(unsigned int)key[0]], key);
 		if (pair == NULL)
 			printf("%s: Not found.\n", key);
 		else
