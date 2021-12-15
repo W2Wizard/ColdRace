@@ -41,6 +41,7 @@ char*	ft_strchr(const char *s, int32_t c);
 void	print_error_message(char *message);
 void*	malloc_check(void* obj);
 void	free_pair(t_pair *pair);
+void	ft_bzero(void *s, size_t n);
 
 //= Algo =//
 

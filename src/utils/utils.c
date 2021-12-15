@@ -201,3 +201,16 @@ void	free_pair(t_pair *pair)
 	free(pair->value);
 	free(pair);
 }
+
+void	ft_bzero(void *s, size_t n)
+{
+	char	*p;
+
+	p = (char *)s;
+	while (n > 0)
+	{
+		n--;
+		p[n] = 0;
+	}
+	return ;
+}

@@ -6,46 +6,47 @@
 /*   By: lde-la-h <lde-la-h@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2021/12/14 14:21:58 by lde-la-h      #+#    #+#                 */
-/*   Updated: 2021/12/15 11:16:14 by jowytrzy      ########   odam.nl         */
+/*   Updated: 2021/12/15 11:44:48 by jowytrzy      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "coldrace.h"
-// #define BUFFER_SIZE 500
+#define BUFFER_SIZE_PRINT 2048
 
-// static void	print_buffer(char *buffer, int *buff_i)
-// {
-// 	write(1, buffer, *buff_i);
-// 	ft_bzero(buffer, BUFFER_SIZE);
-// 	*buff_i = 0;
-// }
 
-// int			add_print_buffer(const char *str, int length)
-// {
-// 	static char	buffer[BUFFER_SIZE];
-// 	static int	buff_i;
-// 	static int	count;
-// 	int			i;
+static void	print_buffer(char *buffer, int *buff_i)
+{
+	write(1, buffer, *buff_i);
+	ft_bzero(buffer, BUFFER_SIZE_PRINT);
+	*buff_i = 0;
+}
 
-// 	i = 0;
-// 	if (length < 0)
-// 	{
-// 		print_buffer(buffer, &buff_i);
-// 		i = count;
-// 		count = 0;
-// 		return (i);
-// 	}
-// 	while (i < length)
-// 	{
-// 		buffer[buff_i] = str[i];
-// 		buff_i++;
-// 		i++;
-// 		count++;
-// 		if (buff_i == BUFFER_SIZE)
-// 			print_buffer(buffer, &buff_i);
-// 	}
-// 	return (count);
-// }
+void	add_print_buffer(const char *str, int flush, int nl)
+{
+	static char	buffer[BUFFER_SIZE_PRINT];
+	static int	buff_i;
+
+	if (flush)
+	{
+		print_buffer(buffer, &buff_i);
+		return ;
+	}
+	while (*str)
+	{
+		buffer[buff_i] = *str;
+		buff_i++;
+		str++;
+		if (buff_i == BUFFER_SIZE)
+			print_buffer(buffer, &buff_i);
+	}
+	if (nl) {
+		buffer[buff_i] = '\n';
+		buff_i++;
+		if (buff_i == BUFFER_SIZE)
+			print_buffer(buffer, &buff_i);
+	}
+	return ;
+}
 
 int32_t main(void)
 {
@@ -66,7 +67,7 @@ int32_t main(void)
 		trees[index] = insert_node(trees[index], new_pair(key, value));
 		// tree = insert_node(tree, new_pair(key, value));
 	}
-
+	free(key);
 	//Part 2, searching
 	while ((key = ft_readline(fd)))
 	{
@@ -74,10 +75,18 @@ int32_t main(void)
 			break;
 		// t_pair* pair = find_node(tree, key);
 		t_pair* pair = find_node(trees[(unsigned int)key[0]], key);
-		if (pair == NULL)
-			printf("%s: Not found.\n", key);
-		else
-			printf("%s\n", pair->value);
+		if (pair == NULL) {
+			add_print_buffer(key, 0, 0);
+			add_print_buffer(": Not found.", 0, 1);
+			// printf("%s: Not found.\n", key);
+		}
+		else {
+			add_print_buffer(pair->value, 0, 1);
+			// printf("%s\n", pair->value);
+		}
+		free(key);
 	}
+	free(key);
+	add_print_buffer("",1,0);
 	exit(EXIT_SUCCESS);
 }
