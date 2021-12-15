@@ -9,10 +9,7 @@ int height(t_node* node)
 
 int avl_max(int a, int b)
 {
-	if (a > b)
-		return (a);
-	return (b);
-	// return ((a > b) ? a : b);
+	return (a * (a >= b) + b * (b > a));
 }
 
 int avl_get_balance(t_node* node)
@@ -102,7 +99,7 @@ t_pair*	find_node(t_node* root, char *key)
 		return(find_node(root->left, key));
 }
 
-void preOrder(t_node *root)
+void preOrder(t_node* root)
 {
 	if(root != NULL)
 	{

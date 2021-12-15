@@ -57,8 +57,8 @@ size_t	ft_strlen(const char* str)
  */
 char*	ft_strdup(const char* s1)
 {
-	char    *str;
-	size_t    ln;
+	char*	str;
+	size_t	ln;
 
 	ln = ft_strlen(s1);
 	str = malloc_check(malloc(ln * sizeof(char) + 1));
@@ -76,20 +76,20 @@ char*	ft_strdup(const char* s1)
  */
 char*   ft_append(char* str1, char* str2)
 {
-    char    *out;
-    size_t    len1;
-    size_t    len2;
+	char*		out;
+	size_t		len1;
+	size_t		len2;
 
-    if (!str1)
-        return (ft_strdup(str2));
-    len1 = ft_strlen(str1);
-    len2 = ft_strlen(str2);
-    out = (char *)malloc_check(malloc(len1 + len2 + 1));
-    ft_memmove(out, str1, len1);
-    ft_memmove(out + len1, str2, len2);
-    free((char *)str1);
+	if (!str1)
+		return (ft_strdup(str2));
+	len1 = ft_strlen(str1);
+	len2 = ft_strlen(str2);
+	out = malloc_check(malloc(len1 + len2 + 1));
+	ft_memmove(out, str1, len1);
+	ft_memmove(out + len1, str2, len2);
+	free((char *)str1);
 	out[len1 + len2] = '\0';
-    return (out);
+	return (out);
 }
 
 /**
@@ -100,7 +100,7 @@ char*   ft_append(char* str1, char* str2)
  * @param len How many characters long.
  * @return char* 
  */
-char	*ft_substr(char const* s, size_t start, size_t len)
+char*	ft_substr(char const* s, size_t start, size_t len)
 {
 	char*	sub;
 	size_t	strln;
@@ -116,13 +116,20 @@ char	*ft_substr(char const* s, size_t start, size_t len)
 	return (sub);
 }
 
-void*	ft_memmove(void *dst, const void *src, size_t len)
+/**
+ * Moves a section of memory from one buffer to another.
+ * 
+ * @param dst The target buffer.
+ * @param src The source buffer.
+ * @param len The amount to move.
+ * @return void* Ptr to target.
+ */
+void*	ft_memmove(void* dst, const void* src, size_t len)
 {
-	size_t	i;
+	size_t	i = 0;
 
 	if (!dst || !src)
 		return (NULL);
-	i = 0;
 	if (src < dst)
 	{
 		while (len-- > 0)
@@ -139,11 +146,17 @@ void*	ft_memmove(void *dst, const void *src, size_t len)
 	return (dst);
 }
 
-char	*ft_strchr(const char *s, int c)
+/**
+ * Searches for a char in a given string.
+ * 
+ * @param s The string.
+ * @param c The character to search for.
+ * @return char* Ptr to that character's occurence.
+ */
+char*	ft_strchr(const char* s, int c)
 {
-	int	i;
+	int	i = 0;
 
-	i = 0;
 	while (s[i] != '\0')
 	{
 		if (s[i] == c)
@@ -160,6 +173,13 @@ void	print_error_message(char *message)
 	write(2, message, ft_strlen(message));
 }
 
+/**
+ * Malloc protection, use this to wrap/protect your mallocs.
+ * On Allocation failure, it just exits with an error message.
+ * 
+ * @param obj 
+ * @return void* 
+ */
 void*	malloc_check(void* obj)
 {
 	if (obj == NULL)
@@ -170,6 +190,11 @@ void*	malloc_check(void* obj)
 	return (obj);
 }
 
+/**
+ * Frees / deconstructs a pair.
+ * 
+ * @param pair The pair to de-allocate.
+ */
 void	free_pair(t_pair *pair)
 {
 	free(pair->key);
