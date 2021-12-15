@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
-/*                                                        ::::::::            */
-/*   main.c                                             :+:    :+:            */
-/*                                                     +:+                    */
-/*   By: lde-la-h <lde-la-h@student.codam.nl>         +#+                     */
-/*                                                   +#+                      */
-/*   Created: 2021/12/14 14:21:58 by lde-la-h      #+#    #+#                 */
-/*   Updated: 2021/12/15 12:58:53 by jowytrzy      ########   odam.nl         */
+/*                                                        :::      ::::::::   */
+/*   main.c                                             :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: jvan-kra <jvan-kra@student.42.fr>          +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2021/12/14 14:21:58 by lde-la-h          #+#    #+#             */
+/*   Updated: 2021/12/15 13:30:33 by jvan-kra         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,13 +36,13 @@ void	add_print_buffer(const char *str, int flush, int nl)
 		buffer[buff_i] = *str;
 		buff_i++;
 		str++;
-		if (buff_i == BUFFER_SIZE)
+		if (buff_i == BUFFER_SIZE_PRINT)
 			print_buffer(buffer, &buff_i);
 	}
 	if (nl) {
 		buffer[buff_i] = '\n';
 		buff_i++;
-		if (buff_i == BUFFER_SIZE)
+		if (buff_i == BUFFER_SIZE_PRINT)
 			print_buffer(buffer, &buff_i);
 	}
 	return ;
