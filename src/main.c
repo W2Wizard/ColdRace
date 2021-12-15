@@ -6,7 +6,7 @@
 /*   By: lde-la-h <lde-la-h@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2021/12/14 14:21:58 by lde-la-h      #+#    #+#                 */
-/*   Updated: 2021/12/15 11:00:14 by jowytrzy      ########   odam.nl         */
+/*   Updated: 2021/12/15 11:04:13 by jowytrzy      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -49,13 +49,14 @@
 
 int32_t main(void)
 {
-	const int32_t fd = open("big.txt", O_RDONLY);
-	static t_node* trees[256];
+	// const int32_t fd = open("big.txt", O_RDONLY);
+	const int fd = STDIN_FILENO;
 
-	char*   key = NULL;
+	static t_node* trees[256];
 	// t_node* tree = NULL;
+	char*   key = NULL;
+
 	// Part 1, enter
-	// printf("P: %p\n", trees[5]);
 	while ((key = ft_readline(fd)))
 	{
 		if (*key == '\0')
@@ -64,7 +65,8 @@ int32_t main(void)
 		trees[(int)key[0]] = insert_node(trees[(int)key[0]], new_pair(key, value));
 		// tree = insert_node(tree, new_pair(key, value));
 	}
-	// Part 2, searching
+
+	//Part 2, searching
 	while ((key = ft_readline(fd)))
 	{
 		if (*key == '\0')
@@ -72,18 +74,9 @@ int32_t main(void)
 		// t_pair* pair = find_node(tree, key);
 		t_pair* pair = find_node(trees[(int)key[0]], key);
 		if (pair == NULL)
-		{
 			printf("%s: Not found.\n", key);
-			// write(STDERR_FILENO, key, ft_strclen(key, '\n'));
-			// write(STDERR_FILENO, ": Not found.\n", 13);
-		}
 		else
-		{
 			printf("%s\n", pair->value);
-			// write(STDOUT_FILENO, pair->value, ft_strclen(pair->value, '\n'));
-			// write(STDOUT_FILENO, "\n", 1);
-		}
 	}
 	exit(EXIT_SUCCESS);
 }
-
